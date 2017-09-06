@@ -23,22 +23,28 @@ A maven plugin for creating property on the fly based on condition.
    <plugin>
       <groupId>com.github.aaabidunique</groupId>
       <artifactId>dynamic-property-maven-plugin</artifactId>
-      <version>-SNAPSHOT</version>
+      <version>1.0.1</version>
       <executions>
          <execution>
             <id>process-dynamic-properties</id>
+            <!-- should  be validate phase since properties need to be operated on before project build starts-->
             <phase>validate</phase>
             <goals>
+				<!-- there is only one goal present to perform dynamic property generation/substitution of values -->
                <goal>process-dynamic-properties</goal>
             </goals>
             <configuration>
                <operations>
+				  <!-- multiple operation support -->
                   <operation>
+					<!-- criteria on which operation need to be performed -->
                      <criteria>
                         <inputProperty>${project.version}</inputProperty>
+                        <!-- available operator are : EQUALS,EQUALS_IGNORE_CASE,CONTAINS,REGEX -->
                         <operator>REGEX</operator>
                         <operand>.*-SNAPSHOT</operand>
                      </criteria>
+                     <!-- operation in case above criteria in true -->
                      <trueOperations>
                         <operationProperty>
                            <key>your_key1</key>
@@ -49,6 +55,7 @@ A maven plugin for creating property on the fly based on condition.
                            <value>your_value2</value>
                         </operationProperty>
                      </trueOperations>
+                     <!-- operation in case above criteria in false -->
                      <falseOperations>
                         <operationProperty>
                            <key>your_key1</key>
