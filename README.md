@@ -11,10 +11,10 @@ Currently this plugin supports only few [operators](https://github.com/aaabiduni
 
 #### Note:
 Currently supported operator are:
-> EQUALS
-> EQUALS_IGNORE_CASE
-> CONTAINS
-> REGEX
+> + EQUALS
+> + EQUALS_IGNORE_CASE
+> + CONTAINS
+> + REGEX
 
 ### Created & Maintained By
 [Abid Ali](https://github.com/aaabidunique/)
